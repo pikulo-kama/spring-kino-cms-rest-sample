@@ -48,7 +48,7 @@
                     </tr>
                     <tr>
                         <td><a href="#operation--v1-admin-movies-update--id--post">POST /v1/admin/movies/update/{id}</a></td>
-                        <td><p>update</p>
+                        <td><p>updateById</p>
         </td>
                     </tr>
                 </tbody>
@@ -69,6 +69,16 @@
                     <tr>
                         <td><a href="#operation--v1-admin-news-get">GET /v1/admin/news</a></td>
                         <td><p>findAll</p>
+        </td>
+                    </tr>
+                    <tr>
+                        <td><a href="#operation--v1-admin-news-create-post">POST /v1/admin/news/create</a></td>
+                        <td><p>create</p>
+        </td>
+                    </tr>
+                    <tr>
+                        <td><a href="#operation--v1-admin-news-update--id--post">POST /v1/admin/news/update/{id}</a></td>
+                        <td><p>updateById</p>
         </td>
                     </tr>
                     <tr>
@@ -470,11 +480,7 @@
                                             <div class="row">
                                                 
                                                 <div class="col-md-6 sw-response-model">
-                                                <div  class="panel panel-definition">
-                                                    <div class="panel-body">
-                                                            
-                                                    </div>
-                                                </div></div>
+                                            </div>
                                             
                                             </div>                </dd>
                                     <dt class="sw-response-201">
@@ -553,7 +559,7 @@
         <span id="path--v1-admin-movies-update--id-"></span>
             <div id="operation--v1-admin-movies-update--id--post" class="swagger--panel-operation-post panel">
                 <div class="panel-heading">
-                    <div class="operation-summary">update</div>
+                    <div class="operation-summary">updateById</div>
                     <h3 class="panel-title"><span class="operation-name">POST</span> <strong>/v1/admin/movies/update/{id}</strong></h3>
                         Tags:
                             <a href="#tag-admin-movie-controller">admin-movie-controller</a>
@@ -804,11 +810,7 @@
                                             <div class="row">
                                                 
                                                 <div class="col-md-6 sw-response-model">
-                                                <div  class="panel panel-definition">
-                                                    <div class="panel-body">
-                                                            
-                                                    </div>
-                                                </div></div>
+                                            </div>
                                             
                                             </div>                </dd>
                                     <dt class="sw-response-201">
@@ -1073,6 +1075,594 @@
                                                                                 </div>
                                                                             </section>    </div>
                                                 </div></div>
+                                            
+                                            </div>                </dd>
+                                    <dt class="sw-response-401">
+                                        401 Unauthorized
+                                    
+                                    </dt>
+                                    <dd class="sw-response-401">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>Unauthorized</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                            </div>
+                                            
+                                            </div>                </dd>
+                                    <dt class="sw-response-403">
+                                        403 Forbidden
+                                    
+                                    </dt>
+                                    <dd class="sw-response-403">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>Forbidden</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                            </div>
+                                            
+                                            </div>                </dd>
+                                    <dt class="sw-response-404">
+                                        404 Not Found
+                                    
+                                    </dt>
+                                    <dd class="sw-response-404">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>Not Found</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                            </div>
+                                            
+                                            </div>                </dd>
+                            </dl>
+                        </section>
+                </div>
+            </div>
+        
+        <span id="path--v1-admin-news-create"></span>
+            <div id="operation--v1-admin-news-create-post" class="swagger--panel-operation-post panel">
+                <div class="panel-heading">
+                    <div class="operation-summary">create</div>
+                    <h3 class="panel-title"><span class="operation-name">POST</span> <strong>/v1/admin/news/create</strong></h3>
+                        Tags:
+                            <a href="#tag-admin-movie-news-controller">admin-movie-news-controller</a>
+                </div>
+                <div class="panel-body">
+                    <section class="sw-operation-description">
+                        
+                    </section>
+            
+                        
+                            <section class="sw-request-body">
+                                
+                                    <p><span class="label label-default">application/json</span> 
+                        </p>
+                            </section>        
+                        <section class="sw-request-params">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th class="sw-param-name"></th>
+                                    <th class="sw-param-description"></th>
+                                    <th class="sw-param-type"></th>
+                                    <th class="sw-param-data-type"></th>
+                                    <th class="sw-param-annotation"></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                        <tr>
+                                            <td>
+                                                description
+                                            </td>
+                                            <td></td>
+                                            <td>query</td>
+                                            <td>
+                                        <span class="json-property-type">string</span>
+                                        <span class="json-property-range" title="Value limits"></span>
+                                        
+                                            </td>
+                                            <td>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                galleryImageUrls
+                                            </td>
+                                            <td></td>
+                                            <td>query</td>
+                                            <td>
+                                        <span class="json-property-type">string[]</span>
+                                        <span class="json-property-range" title="Value limits"></span>
+                                        
+                                        <span class="sw-param-collection-format">, 
+                                                        multiple parameters (<code>galleryImageUrls=aaa&amp;galleryImageUrls=bbb</code>)
+                                                    </span>    </td>
+                                            <td>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                isVisible
+                                            </td>
+                                            <td></td>
+                                            <td>query</td>
+                                            <td>
+                                        <span class="json-property-type">boolean</span>
+                                        <span class="json-property-range" title="Value limits"></span>
+                                        
+                                            </td>
+                                            <td>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                mainImageUrl
+                                            </td>
+                                            <td></td>
+                                            <td>query</td>
+                                            <td>
+                                        <span class="json-property-type">string</span>
+                                        <span class="json-property-range" title="Value limits"></span>
+                                        
+                                            </td>
+                                            <td>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                publicationDate
+                                            </td>
+                                            <td></td>
+                                            <td>query</td>
+                                            <td>
+                                        <span class="json-property-type">string</span>    <span class="json-property-format">(date)</span>
+                                        <span class="json-property-range" title="Value limits"></span>
+                                        
+                                            </td>
+                                            <td>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                seoBlock.seoDescription
+                                            </td>
+                                            <td></td>
+                                            <td>query</td>
+                                            <td>
+                                        <span class="json-property-type">string</span>
+                                        <span class="json-property-range" title="Value limits"></span>
+                                        
+                                            </td>
+                                            <td>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                seoBlock.seoKeywords
+                                            </td>
+                                            <td></td>
+                                            <td>query</td>
+                                            <td>
+                                        <span class="json-property-type">string</span>
+                                        <span class="json-property-range" title="Value limits"></span>
+                                        
+                                            </td>
+                                            <td>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                seoBlock.seoTitle
+                                            </td>
+                                            <td></td>
+                                            <td>query</td>
+                                            <td>
+                                        <span class="json-property-type">string</span>
+                                        <span class="json-property-range" title="Value limits"></span>
+                                        
+                                            </td>
+                                            <td>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                seoBlock.seoUrl
+                                            </td>
+                                            <td></td>
+                                            <td>query</td>
+                                            <td>
+                                        <span class="json-property-type">string</span>
+                                        <span class="json-property-range" title="Value limits"></span>
+                                        
+                                            </td>
+                                            <td>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                title
+                                            </td>
+                                            <td></td>
+                                            <td>query</td>
+                                            <td>
+                                        <span class="json-property-type">string</span>
+                                        <span class="json-property-range" title="Value limits"></span>
+                                        
+                                            </td>
+                                            <td>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                videoUrl
+                                            </td>
+                                            <td></td>
+                                            <td>query</td>
+                                            <td>
+                                        <span class="json-property-type">string</span>
+                                        <span class="json-property-range" title="Value limits"></span>
+                                        
+                                            </td>
+                                            <td>
+                                            </td>
+                                        </tr>
+                                </tbody>
+                            </table>
+                        </section>
+                    
+                        <section class="sw-responses">
+                                <p><span class="label label-default">*/*</span> 
+                    </p>
+                    
+                            <dl>
+                                    <dt class="sw-response-200">
+                                        200 OK
+                                    
+                                    </dt>
+                                    <dd class="sw-response-200">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>OK</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                            </div>
+                                            
+                                            </div>                </dd>
+                                    <dt class="sw-response-201">
+                                        201 Created
+                                    
+                                    </dt>
+                                    <dd class="sw-response-201">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>Created</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                            </div>
+                                            
+                                            </div>                </dd>
+                                    <dt class="sw-response-401">
+                                        401 Unauthorized
+                                    
+                                    </dt>
+                                    <dd class="sw-response-401">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>Unauthorized</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                            </div>
+                                            
+                                            </div>                </dd>
+                                    <dt class="sw-response-403">
+                                        403 Forbidden
+                                    
+                                    </dt>
+                                    <dd class="sw-response-403">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>Forbidden</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                            </div>
+                                            
+                                            </div>                </dd>
+                                    <dt class="sw-response-404">
+                                        404 Not Found
+                                    
+                                    </dt>
+                                    <dd class="sw-response-404">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>Not Found</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                            </div>
+                                            
+                                            </div>                </dd>
+                            </dl>
+                        </section>
+                </div>
+            </div>
+        
+        <span id="path--v1-admin-news-update--id-"></span>
+            <div id="operation--v1-admin-news-update--id--post" class="swagger--panel-operation-post panel">
+                <div class="panel-heading">
+                    <div class="operation-summary">updateById</div>
+                    <h3 class="panel-title"><span class="operation-name">POST</span> <strong>/v1/admin/news/update/{id}</strong></h3>
+                        Tags:
+                            <a href="#tag-admin-movie-news-controller">admin-movie-news-controller</a>
+                </div>
+                <div class="panel-body">
+                    <section class="sw-operation-description">
+                        
+                    </section>
+            
+                        
+                            <section class="sw-request-body">
+                                
+                                    <p><span class="label label-default">application/json</span> 
+                        </p>
+                            </section>        
+                        <section class="sw-request-params">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th class="sw-param-name"></th>
+                                    <th class="sw-param-description"></th>
+                                    <th class="sw-param-type"></th>
+                                    <th class="sw-param-data-type"></th>
+                                    <th class="sw-param-annotation"></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                        <tr>
+                                            <td>
+                                                description
+                                            </td>
+                                            <td></td>
+                                            <td>query</td>
+                                            <td>
+                                        <span class="json-property-type">string</span>
+                                        <span class="json-property-range" title="Value limits"></span>
+                                        
+                                            </td>
+                                            <td>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                galleryImageUrls
+                                            </td>
+                                            <td></td>
+                                            <td>query</td>
+                                            <td>
+                                        <span class="json-property-type">string[]</span>
+                                        <span class="json-property-range" title="Value limits"></span>
+                                        
+                                        <span class="sw-param-collection-format">, 
+                                                        multiple parameters (<code>galleryImageUrls=aaa&amp;galleryImageUrls=bbb</code>)
+                                                    </span>    </td>
+                                            <td>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                id
+                                            </td>
+                                            <td><p>id</p>
+                                        </td>
+                                            <td>path</td>
+                                            <td>
+                                        <span class="json-property-type">integer</span>    <span class="json-property-format">(int64)</span>
+                                        <span class="json-property-range" title="Value limits"></span>
+                                        
+                                            </td>
+                                            <td>
+                                                    <span class="json-property-required"></span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                isVisible
+                                            </td>
+                                            <td></td>
+                                            <td>query</td>
+                                            <td>
+                                        <span class="json-property-type">boolean</span>
+                                        <span class="json-property-range" title="Value limits"></span>
+                                        
+                                            </td>
+                                            <td>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                mainImageUrl
+                                            </td>
+                                            <td></td>
+                                            <td>query</td>
+                                            <td>
+                                        <span class="json-property-type">string</span>
+                                        <span class="json-property-range" title="Value limits"></span>
+                                        
+                                            </td>
+                                            <td>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                publicationDate
+                                            </td>
+                                            <td></td>
+                                            <td>query</td>
+                                            <td>
+                                        <span class="json-property-type">string</span>    <span class="json-property-format">(date)</span>
+                                        <span class="json-property-range" title="Value limits"></span>
+                                        
+                                            </td>
+                                            <td>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                seoBlock.seoDescription
+                                            </td>
+                                            <td></td>
+                                            <td>query</td>
+                                            <td>
+                                        <span class="json-property-type">string</span>
+                                        <span class="json-property-range" title="Value limits"></span>
+                                        
+                                            </td>
+                                            <td>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                seoBlock.seoKeywords
+                                            </td>
+                                            <td></td>
+                                            <td>query</td>
+                                            <td>
+                                        <span class="json-property-type">string</span>
+                                        <span class="json-property-range" title="Value limits"></span>
+                                        
+                                            </td>
+                                            <td>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                seoBlock.seoTitle
+                                            </td>
+                                            <td></td>
+                                            <td>query</td>
+                                            <td>
+                                        <span class="json-property-type">string</span>
+                                        <span class="json-property-range" title="Value limits"></span>
+                                        
+                                            </td>
+                                            <td>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                seoBlock.seoUrl
+                                            </td>
+                                            <td></td>
+                                            <td>query</td>
+                                            <td>
+                                        <span class="json-property-type">string</span>
+                                        <span class="json-property-range" title="Value limits"></span>
+                                        
+                                            </td>
+                                            <td>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                title
+                                            </td>
+                                            <td></td>
+                                            <td>query</td>
+                                            <td>
+                                        <span class="json-property-type">string</span>
+                                        <span class="json-property-range" title="Value limits"></span>
+                                        
+                                            </td>
+                                            <td>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                videoUrl
+                                            </td>
+                                            <td></td>
+                                            <td>query</td>
+                                            <td>
+                                        <span class="json-property-type">string</span>
+                                        <span class="json-property-range" title="Value limits"></span>
+                                        
+                                            </td>
+                                            <td>
+                                            </td>
+                                        </tr>
+                                </tbody>
+                            </table>
+                        </section>
+                    
+                        <section class="sw-responses">
+                                <p><span class="label label-default">*/*</span> 
+                    </p>
+                    
+                            <dl>
+                                    <dt class="sw-response-200">
+                                        200 OK
+                                    
+                                    </dt>
+                                    <dd class="sw-response-200">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>OK</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                            </div>
+                                            
+                                            </div>                </dd>
+                                    <dt class="sw-response-201">
+                                        201 Created
+                                    
+                                    </dt>
+                                    <dd class="sw-response-201">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>Created</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                            </div>
                                             
                                             </div>                </dd>
                                     <dt class="sw-response-401">
