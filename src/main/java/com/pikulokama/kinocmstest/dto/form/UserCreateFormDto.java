@@ -16,17 +16,17 @@ import javax.validation.constraints.Pattern;
 @NoArgsConstructor
 public class UserCreateFormDto {
 
-    @NotBlank(message = "Username is required")
+    @NotBlank(message = "Имя пользователя отсутствует")
     @Pattern(regexp = "\\w{2,100}", message = "Username is required")
     private String username;
 
-    @NotBlank(message = "Password is required")
+    @NotBlank(message = "Пароль отсутствует")
     private String password;
 
-    @NotBlank(message = "Password is required")
+    @NotBlank(message = "Повтора пароля отсутствует")
     private String passwordRepeat;
 
-    @NotNull(message = "Role is required")
+    @NotNull(message = "Роль отсутствует")
     private User.UserRole role;
 
 }

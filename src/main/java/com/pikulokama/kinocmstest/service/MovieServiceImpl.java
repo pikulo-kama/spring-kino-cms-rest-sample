@@ -1,20 +1,18 @@
 package com.pikulokama.kinocmstest.service;
 
 import com.pikulokama.kinocmstest.domain.Movie;
-import com.pikulokama.kinocmstest.domain.SeoBlock;
 import com.pikulokama.kinocmstest.dto.form.MovieFormDto;
 import com.pikulokama.kinocmstest.dto.response.MovieCollectionResponseDto;
 import com.pikulokama.kinocmstest.dto.response.MovieResponseDto;
 import com.pikulokama.kinocmstest.exception.RestServiceException;
-import com.pikulokama.kinocmstest.repository.MovieRepository;
+import com.pikulokama.kinocmstest.mapper.GalleryImageMapper;
 import com.pikulokama.kinocmstest.mapper.MovieMapper;
+import com.pikulokama.kinocmstest.repository.MovieRepository;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-
-import static com.pikulokama.kinocmstest.mapper.GalleryImageMapper.join;
 
 @Log4j2
 @Service
@@ -24,12 +22,16 @@ public class MovieServiceImpl implements MovieService {
 
     private final MovieMapper movieMapper;
 
+    private final GalleryImageMapper galleryImageMapper;
+
     @Autowired
     public MovieServiceImpl(MovieRepository movieRepository,
-                            MovieMapper movieMapper) {
+                            MovieMapper movieMapper,
+                            GalleryImageMapper galleryImageMapper) {
 
         this.movieRepository = movieRepository;
         this.movieMapper = movieMapper;
+        this.galleryImageMapper = galleryImageMapper;
     }
 
 
@@ -52,7 +54,7 @@ public class MovieServiceImpl implements MovieService {
     }
 
     @Override
-    public void update(MovieFormDto movieFormDto, Long movieId) {
+    public void updateById(MovieFormDto movieFormDto, Long movieId) {
 
         Movie movie = findById(movieId);
 
@@ -60,18 +62,13 @@ public class MovieServiceImpl implements MovieService {
                 .title(movieFormDto.getTitle())
                 .description(movieFormDto.getDescription())
                 .mainImageUrl(movieFormDto.getMainImageUrl())
-                .galleryImageUrls(join(movieFormDto.getGalleryImageUrls()))
+                .galleryImageUrls(galleryImageMapper.join(movieFormDto.getGalleryImageUrls()))
                 .videoUrl(movieFormDto.getVideoUrl())
                 .availableInTwoD(movieFormDto.getAvailableInTwoD())
                 .availableInThreeD(movieFormDto.getAvailableInThreeD())
                 .availableInImax(movieFormDto.getAvailableInImax())
                 .releaseDate(movieFormDto.getReleaseDate())
-                .seoBlock(SeoBlock.builder()
-                        .seoUrl(movieFormDto.getSeoUrl())
-                        .seoTitle(movieFormDto.getSeoTitle())
-                        .seoDescription(movieFormDto.getSeoDescription())
-                        .seoKeywords(movieFormDto.getSeoKeywords())
-                        .build())
+                .seoBlock(movieFormDto.getSeoBlock())
                 .build();
 
         movieRepository.save(updatedMovie);
@@ -86,18 +83,13 @@ public class MovieServiceImpl implements MovieService {
                 .title(movieFormDto.getTitle())
                 .description(movieFormDto.getDescription())
                 .mainImageUrl(movieFormDto.getMainImageUrl())
-                .galleryImageUrls(join(movieFormDto.getGalleryImageUrls()))
+                .galleryImageUrls(galleryImageMapper.join(movieFormDto.getGalleryImageUrls()))
                 .videoUrl(movieFormDto.getVideoUrl())
                 .availableInTwoD(movieFormDto.getAvailableInTwoD())
                 .availableInThreeD(movieFormDto.getAvailableInThreeD())
                 .availableInImax(movieFormDto.getAvailableInImax())
                 .releaseDate(movieFormDto.getReleaseDate())
-                .seoBlock(SeoBlock.builder()
-                        .seoUrl(movieFormDto.getSeoUrl())
-                        .seoTitle(movieFormDto.getSeoTitle())
-                        .seoDescription(movieFormDto.getSeoDescription())
-                        .seoKeywords(movieFormDto.getSeoKeywords())
-                        .build())
+                .seoBlock(movieFormDto.getSeoBlock())
                 .build();
 
         movieRepository.save(movie);
@@ -106,9 +98,9 @@ public class MovieServiceImpl implements MovieService {
     }
 
     @Override
-    public MovieResponseDto getMovieResponseDtoForCard(Long movieId) {
+    public MovieResponseDto getCardMovieResponseDto(Long movieId) {
         Movie movie = findById(movieId);
-        return movieMapper.mapToMovieResponseDtoForCard(movie);
+        return movieMapper.mapToCardMovieResponseDto(movie);
     }
 
 }

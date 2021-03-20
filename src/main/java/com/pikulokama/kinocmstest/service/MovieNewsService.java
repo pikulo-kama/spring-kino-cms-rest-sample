@@ -17,6 +17,6 @@ public interface MovieNewsService {
 
     void create(MovieNewsFormDto movieNewsFormDto);
 
-    void update(MovieNewsFormDto movieNewsFormDto, Long movieNewsId);
+    void updateById(MovieNewsFormDto movieNewsFormDto, Long movieNewsId);
 
 }

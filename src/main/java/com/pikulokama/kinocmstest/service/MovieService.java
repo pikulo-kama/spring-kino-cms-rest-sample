@@ -15,10 +15,10 @@ public interface MovieService {
 
     Movie findById(Long id);
 
-    void update(MovieFormDto movieFormDto, Long movieId);
+    void updateById(MovieFormDto movieFormDto, Long movieId);
 
     void create(MovieFormDto movieFormDto);
 
-    MovieResponseDto getMovieResponseDtoForCard(Long movieId);
+    MovieResponseDto getCardMovieResponseDto(Long movieId);
 
 }

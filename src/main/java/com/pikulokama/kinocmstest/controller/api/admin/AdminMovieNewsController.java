@@ -43,7 +43,7 @@ public class AdminMovieNewsController {
     public void updateById(@Validated MovieNewsFormDto movieNewsFormDto,
                            @PathVariable("id") Long movieNewsId) {
 
-        movieNewsService.update(movieNewsFormDto, movieNewsId);
+        movieNewsService.updateById(movieNewsFormDto, movieNewsId);
     }
 
 }

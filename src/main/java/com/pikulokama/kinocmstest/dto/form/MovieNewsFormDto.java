@@ -20,10 +20,10 @@ import java.util.List;
 @NoArgsConstructor
 public class MovieNewsFormDto {
 
-    @NotBlank(message = "Название фильма необходимое")
+    @NotBlank(message = "Название фильма отсутствует")
     private String title;
 
-    @NotNull(message = "Значение должно присутствовать")
+    @NotNull(message = "Статус видимости новостей отсутствует")
     private Boolean isVisible;
 
     private String mainImageUrl;
@@ -33,7 +33,7 @@ public class MovieNewsFormDto {
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE, pattern = "yyyy-MM-dd")
     private LocalDate publicationDate;
 
-    @NotBlank(message = "Описание необходимое")
+    @NotBlank(message = "Описание новостей отсутствует")
     @Pattern(regexp = ".{50,500}", message = "Описание должно бить от 50 до 500 символов")
     private String description;
 

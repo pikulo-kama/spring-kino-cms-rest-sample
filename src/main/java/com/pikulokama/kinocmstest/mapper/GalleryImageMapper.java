@@ -1,26 +1,32 @@
 package com.pikulokama.kinocmstest.mapper;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
 import java.util.Arrays;
 import java.util.List;
 
 import static java.util.Objects.isNull;
 
+@Component
 public class GalleryImageMapper {
 
-    // It could be in .yaml file
-    public static final String DELIMITER = "\\s";
-    public static final String DEFAULT_IMAGE = "default.jpg";
+    @Value("${movies.image-gallery.mapper.delimiter}")
+    private  String delimiter;
 
-    public static List<String> split(String galleryImageUrls) {
-        return Arrays.asList(galleryImageUrls.split(DELIMITER));
+    @Value("${movies.image-gallery.mapper.default-image}")
+    private String defaultImage;
+
+    public List<String> split(String galleryImageUrls) {
+        return Arrays.asList(galleryImageUrls.split(delimiter));
     }
 
-    public static String join(List<String> galleryImageUrls) {
+    public String join(List<String> galleryImageUrls) {
 
         if (isNull(galleryImageUrls)) {
-            return DEFAULT_IMAGE;
+            return defaultImage;
         }
 
-        return String.join(DELIMITER, galleryImageUrls);
+        return String.join(delimiter, galleryImageUrls);
     }
 }

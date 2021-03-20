@@ -35,13 +35,13 @@ class DbSetupUtil {
         User admin = User.builder()
                 .username("admin")
                 .password(bCryptPasswordEncoder.encode("admin"))
-                .role(User.UserRole.ROLE_ADMIN.name())
+                .role(User.UserRole.ROLE_ADMIN)
                 .build();
 
         User commonUser = User.builder()
                 .username("user")
                 .password(bCryptPasswordEncoder.encode("user"))
-                .role(User.UserRole.ROLE_USER.name())
+                .role(User.UserRole.ROLE_USER)
                 .build();
 
         userRepository.save(admin);

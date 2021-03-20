@@ -32,7 +32,7 @@ public class AdminMovieController {
 
     @PostMapping("/update/{id}")
     public void updateById(@PathVariable("id") Long movieId, @Validated MovieFormDto movieFormDto) {
-        movieService.update(movieFormDto, movieId);
+        movieService.updateById(movieFormDto, movieId);
     }
 
 }

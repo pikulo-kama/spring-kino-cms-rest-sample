@@ -3,20 +3,27 @@ package com.pikulokama.kinocmstest.mapper;
 import com.pikulokama.kinocmstest.domain.Movie;
 import com.pikulokama.kinocmstest.dto.response.MovieCollectionResponseDto;
 import com.pikulokama.kinocmstest.dto.response.MovieResponseDto;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
 public class MovieMapper {
 
-    public MovieResponseDto mapToMovieResponseDtoForCard(Movie movie) {
+    private final GalleryImageMapper galleryImageMapper;
+
+    @Autowired
+    public MovieMapper(GalleryImageMapper galleryImageMapper) {
+        this.galleryImageMapper = galleryImageMapper;
+    }
+
+    public MovieResponseDto mapToCardMovieResponseDto(Movie movie) {
         return MovieResponseDto.builder()
                 .id(movie.getId())
                 .title(movie.getTitle())
@@ -24,7 +31,7 @@ public class MovieMapper {
                 .availableInTwoD(movie.getAvailableInTwoD())
                 .availableInThreeD(movie.getAvailableInThreeD())
                 .availableInImax(movie.getAvailableInImax())
-                .galleryImageUrls(Arrays.asList(movie.getGalleryImageUrls().split("\\s")))
+                .galleryImageUrls(galleryImageMapper.split(movie.getGalleryImageUrls()))
                 .build();
     }
 
@@ -40,7 +47,7 @@ public class MovieMapper {
         String movieStatus;
 
         if (movie.getReleaseDate().isBefore(LocalDate.now())) {
-            movieStatus = "Cейчас в кино";
+            movieStatus = "Сейчас в кино";
 
         } else {
 
